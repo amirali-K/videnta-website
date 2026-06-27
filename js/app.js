@@ -217,6 +217,71 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ─── Services Hover Slideshow ──────────────────────
+  function initSlideshow() {
+    const items    = $$('.sh-item');
+    const images   = $$('.sh-img');
+    const dots     = $$('.sh-dot');
+    const nameEl   = $('#shPreviewName');
+    const grid     = $('.sh-grid');
+    if (!items.length) return;
+
+    let autoTimer  = null;
+    let currentIdx = 0;
+    let isPaused   = false;
+
+    function activate(service, idx) {
+      items.forEach(i => i.classList.remove('active'));
+      images.forEach(i => i.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+
+      const item = document.querySelector(`.sh-item[data-service="${service}"]`);
+      const img  = document.querySelector(`.sh-img[data-service="${service}"]`);
+      const dot  = document.querySelector(`.sh-dot[data-service="${service}"]`);
+
+      item?.classList.add('active');
+      img?.classList.add('active');
+      dot?.classList.add('active');
+
+      if (nameEl && item) {
+        nameEl.textContent = item.querySelector('.sh-name')?.textContent || '';
+      }
+      currentIdx = idx;
+    }
+
+    // Hover on list items
+    items.forEach((item, idx) => {
+      item.addEventListener('mouseenter', () => {
+        isPaused = true;
+        clearInterval(autoTimer);
+        activate(item.dataset.service, idx);
+      });
+    });
+
+    // Resume auto on mouse leave from grid
+    grid?.addEventListener('mouseleave', () => {
+      isPaused = false;
+      startAuto();
+    });
+
+    // Auto-rotate every 3s
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        if (isPaused) return;
+        currentIdx = (currentIdx + 1) % items.length;
+        const next = items[currentIdx];
+        activate(next.dataset.service, currentIdx);
+      }, 3000);
+    }
+
+    // Init
+    activate(items[0].dataset.service, 0);
+    startAuto();
+  }
+
+  initSlideshow();
+
   // ─── Hero Video Playlist (seamless crossfade) ──────
   function initHeroPlaylist() {
     const srcs = [

@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════════════
+   Services Hover Slideshow
+   ═══════════════════════════════════════════════════ */
+
+.services-hover {
+  background: var(--navy-dark);
+  padding: var(--pad-section) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background dot grid */
+.services-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(184,212,232,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ─── Grid ─── */
+.sh-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+}
+
+/* ─── Left column ─── */
+.sh-left {}
+
+.sh-header {
+  margin-bottom: 56px;
+}
+
+.sh-big-title {
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-top: 12px;
+}
+
+/* ─── Service list ─── */
+.sh-list { list-style: none; }
+
+.sh-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.sh-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+
+.sh-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  text-decoration: none;
+  color: rgba(255,255,255,0.28);
+  transition: color 0.4s cubic-bezier(0.16,1,0.3,1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Underline sweep on hover/active */
+.sh-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--misty);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.sh-item.active .sh-link,
+.sh-item:hover   .sh-link { color: var(--white); }
+
+.sh-item.active .sh-link::after,
+.sh-item:hover   .sh-link::after { transform: scaleX(1); transform-origin: left; }
+
+/* Fade out non-hovered when any is hovered */
+.sh-list:hover .sh-item:not(:hover):not(.active) .sh-link {
+  color: rgba(255,255,255,0.12);
+}
+
+/* Number */
+.sh-num {
+  font-size: 11px;
+  font-family: monospace;
+  letter-spacing: 0.12em;
+  color: var(--misty);
+  opacity: 0.4;
+  flex-shrink: 0;
+  width: 24px;
+  transition: opacity 0.3s;
+}
+.sh-item.active .sh-num,
+.sh-item:hover   .sh-num { opacity: 0.7; }
+
+/* Name */
+.sh-name {
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 300;
+  flex: 1;
+  letter-spacing: -0.01em;
+  transition: font-weight 0.35s, letter-spacing 0.35s;
+}
+.sh-item.active .sh-name,
+.sh-item:hover   .sh-name { font-weight: 700; letter-spacing: -0.02em; }
+
+/* Arrow */
+.sh-arrow {
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.35s, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+  color: var(--misty);
+}
+.sh-item.active .sh-arrow,
+.sh-item:hover   .sh-arrow { opacity: 1; transform: translateX(0); }
+
+/* ─── Right column: image preview ─── */
+.sh-right {
+  position: sticky;
+  top: 100px;
+}
+
+.sh-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+}
+
+.sh-img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+              transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  transform: scale(1.06);
+}
+.sh-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.sh-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Color accent overlay (when no image yet) */
+.sh-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Label at bottom of preview */
+.sh-preview-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 28px 24px;
+  background: linear-gradient(to top, rgba(15,31,53,0.85) 0%, transparent 100%);
+  z-index: 2;
+}
+.sh-preview-name {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  transition: opacity 0.3s;
+}
+.sh-preview-hint {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+}
+
+/* Progress dots */
+.sh-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.sh-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+.sh-dot.active {
+  background: var(--misty);
+  transform: scale(1.3);
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 1024px) {
+  .sh-grid { grid-template-columns: 1fr 340px; gap: 48px; }
+  .sh-big-title { font-size: clamp(44px, 6vw, 72px); }
+}
+
+@media (max-width: 768px) {
+  .sh-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* On mobile: preview above list */
+  .sh-right { position: relative; top: 0; order: -1; }
+
+  .sh-preview {
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+  }
+
+  /* Show all items — first active */
+  .sh-list:hover .sh-item:not(:hover):not(.active) .sh-link {
+    color: rgba(255,255,255,0.28); /* don't fade on mobile */
+  }
+
+  .sh-name   { font-size: 18px; }
+  .sh-header { margin-bottom: 32px; }
+  .sh-big-title { font-size: 44px; }
+
+  /* Dots visible on mobile */
+  .sh-dots { margin-top: 12px; }
+}
+
+@media (max-width: 480px) {
+  .sh-preview { aspect-ratio: 1/1; border-radius: 12px; }
+  .sh-name  { font-size: 16px; }
+  .sh-link  { padding: 18px 0; gap: 12px; }
+  .sh-big-title { font-size: 36px; }
+}

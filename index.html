@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/glass.css">
   <link rel="stylesheet" href="css/multistep.css">
+  <link rel="stylesheet" href="css/slideshow.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
@@ -144,56 +145,122 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════ SERVICES (dark) ═══════════════════════════ -->
-  <section class="services dark-section" id="services">
+  <!-- ═══════════════════════════ SERVICES — Hover Slideshow ═══════════════════════════ -->
+  <section class="services-hover dark-section" id="services">
     <div class="container">
-      <div class="services-header">
-        <h2 class="services-big-title reveal-light">خدمات ما</h2>
-      </div>
+      <div class="sh-grid">
 
-      <div class="services-grid">
+        <!-- ── Left: list ── -->
+        <div class="sh-left">
+          <div class="sh-header reveal-light">
+            <span class="eyebrow light">خدمات وی‌دنتا</span>
+            <h2 class="sh-big-title">خدمات<br>ما</h2>
+          </div>
 
-        <a href="services/implant.html" class="service-card reveal-light">
-          <div class="service-num">۰۱</div>
-          <h3 class="service-name">ایمپلنت دندان</h3>
-          <p class="service-desc">جایگزینی دائمی دندان‌های از دست رفته با ایمپلنت‌های با کیفیت اروپایی</p>
-          <span class="service-cta">مشاهده جزئیات ←</span>
-        </a>
+          <ul class="sh-list" id="shList">
 
-        <a href="services/orthodontics.html" class="service-card reveal-light" style="--delay: 60ms">
-          <div class="service-num">۰۲</div>
-          <h3 class="service-name">ارتودنسی</h3>
-          <p class="service-desc">اصلاح ترتیب دندان‌ها با براکت‌های ثابت، متحرک و اینویزالاین</p>
-          <span class="service-cta">مشاهده جزئیات ←</span>
-        </a>
+            <li class="sh-item" data-service="implant">
+              <a href="services/implant.html" class="sh-link">
+                <span class="sh-num">01</span>
+                <span class="sh-name">ایمپلنت دندان</span>
+                <svg class="sh-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
 
-        <a href="services/laminate.html" class="service-card reveal-light" style="--delay: 120ms">
-          <div class="service-num">۰۳</div>
-          <h3 class="service-name">لمینت و کامپوزیت</h3>
-          <p class="service-desc">پوشش‌های ظریف سرامیکی برای لبخندی کامل، طبیعی و ماندگار</p>
-          <span class="service-cta">مشاهده جزئیات ←</span>
-        </a>
+            <li class="sh-item" data-service="orthodontics">
+              <a href="services/orthodontics.html" class="sh-link">
+                <span class="sh-num">02</span>
+                <span class="sh-name">ارتودنسی</span>
+                <svg class="sh-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
 
-        <a href="services/whitening.html" class="service-card reveal-light" style="--delay: 60ms">
-          <div class="service-num">۰۴</div>
-          <h3 class="service-name">سفیدکردن دندان</h3>
-          <p class="service-desc">بلیچینگ حرفه‌ای برای لبخندی روشن‌تر و شادتر — در مطب یا خانه</p>
-          <span class="service-cta">مشاهده جزئیات ←</span>
-        </a>
+            <li class="sh-item" data-service="laminate">
+              <a href="services/laminate.html" class="sh-link">
+                <span class="sh-num">03</span>
+                <span class="sh-name">لمینت و کامپوزیت</span>
+                <svg class="sh-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
 
-        <a href="services/general.html" class="service-card reveal-light" style="--delay: 120ms">
-          <div class="service-num">۰۵</div>
-          <h3 class="service-name">دندانپزشکی عمومی</h3>
-          <p class="service-desc">معاینه، جرم‌گیری، ترمیم و مراقبت‌های روتین دندانی با بالاترین استانداردها</p>
-          <span class="service-cta">مشاهده جزئیات ←</span>
-        </a>
+            <li class="sh-item" data-service="whitening">
+              <a href="services/whitening.html" class="sh-link">
+                <span class="sh-num">04</span>
+                <span class="sh-name">سفیدکردن دندان</span>
+                <svg class="sh-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
 
-        <a href="services/children.html" class="service-card reveal-light" style="--delay: 180ms">
-          <div class="service-num">۰۶</div>
-          <h3 class="service-name">دندانپزشکی اطفال</h3>
-          <p class="service-desc">مراقبت تخصصی از دندان‌های کودکان در محیطی آرام و دوستانه</p>
-          <span class="service-cta">مشاهده جزئیات ←</span>
-        </a>
+            <li class="sh-item" data-service="general">
+              <a href="services/general.html" class="sh-link">
+                <span class="sh-num">05</span>
+                <span class="sh-name">دندانپزشکی عمومی</span>
+                <svg class="sh-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
+
+            <li class="sh-item" data-service="children">
+              <a href="services/children.html" class="sh-link">
+                <span class="sh-num">06</span>
+                <span class="sh-name">دندانپزشکی اطفال</span>
+                <svg class="sh-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- ── Right: image preview ── -->
+        <div class="sh-right">
+          <div class="sh-preview" id="shPreview">
+
+            <div class="sh-img" data-service="implant">
+              <img src="assets/images/clinic/benyamin-bohlouli-B_sK_xgzwVA-unsplash.jpg" alt="ایمپلنت دندان" loading="eager">
+            </div>
+            <div class="sh-img" data-service="orthodontics">
+              <img src="assets/images/services/orthodontics/after.png" alt="ارتودنسی" loading="lazy">
+            </div>
+            <div class="sh-img" data-service="laminate">
+              <img src="assets/images/clinic/rachel-kelli-EIYA7E626Xk-unsplash.jpg" alt="لمینت" loading="lazy">
+            </div>
+            <div class="sh-img" data-service="whitening">
+              <img src="assets/images/clinic/amir-esrafili-jbWCiZ6MU-c-unsplash.jpg" alt="سفیدکردن دندان" loading="lazy">
+            </div>
+            <div class="sh-img" data-service="general">
+              <img src="assets/images/clinic/about.jpg" alt="دندانپزشکی عمومی" loading="lazy">
+            </div>
+            <div class="sh-img" data-service="children">
+              <img src="assets/images/clinic/ozkan-guner-0gI0IXURDgo-unsplash.jpg" alt="دندانپزشکی اطفال" loading="lazy">
+            </div>
+
+            <div class="sh-preview-label">
+              <span class="sh-preview-name" id="shPreviewName">ایمپلنت دندان</span>
+              <span class="sh-preview-hint">برای جزئیات کلیک کنید ←</span>
+            </div>
+          </div>
+
+          <!-- Progress dots -->
+          <div class="sh-dots" id="shDots">
+            <div class="sh-dot active" data-service="implant"></div>
+            <div class="sh-dot" data-service="orthodontics"></div>
+            <div class="sh-dot" data-service="laminate"></div>
+            <div class="sh-dot" data-service="whitening"></div>
+            <div class="sh-dot" data-service="general"></div>
+            <div class="sh-dot" data-service="children"></div>
+          </div>
+        </div>
 
       </div>
     </div>
