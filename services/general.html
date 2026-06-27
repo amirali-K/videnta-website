@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دندانپزشکی عمومی — وی‌دنتا</title>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/service.css">
+  <link rel="stylesheet" href="../css/glass.css">
+  <link rel="stylesheet" href="../css/multistep.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <filter id="grain-filter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" stitchTiles="stitch"/>
+        <feColorMatrix type="saturate" values="0"/>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain-filter)" opacity="0.05"/>
+    </svg>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo"><img src="../assets/images/logo/logo.jpg" alt="VIDENTA" class="nav-logo-img"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html#about"    class="nav-link">درباره ما</a></li>
+        <li><a href="../index.html#services" class="nav-link active">خدمات</a></li>
+        <li><a href="../index.html#articles" class="nav-link">مقالات</a></li>
+        <li><a href="../contact.html"        class="nav-link">تماس</a></li>
+      </ul>
+      <a href="../contact.html" class="nav-cta glass-btn glass-btn-navy magnetic">رزرو نوبت</a>
+      <button class="hamburger" id="hamburger" aria-label="باز کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <section class="service-hero dark-section">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="../assets/video/teaser-1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container" style="position:relative;z-index:2">
+      <a href="../index.html#services" class="back-link glass-btn glass-btn-sm">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M8 13L3 8L8 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        بازگشت به خدمات
+      </a>
+      <span class="eyebrow light">خدمات وی‌دنتا</span>
+      <h1 class="service-h1">
+        <span class="title-thin">دندانپزشکی</span>
+        <span class="title-bold">عمومی</span>
+      </h1>
+      <p class="service-lead">معاینه، پیشگیری و درمان با بالاترین استانداردها</p>
+    </div>
+  </section>
+
+  <section class="ba-section section-pad">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">نتایج واقعی</span>
+        <h2 class="section-title">قبل و بعد از درمان</h2>
+        <p>اسلایدر را بکشید تا نتیجه را ببینید</p>
+      </div>
+      <div class="ba-slider reveal" id="baSlider">
+        <div class="ba-before">
+          <div class="img-placeholder" style="height:100%">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="32" height="32" rx="4" stroke="#B8D4E8" stroke-width="1.2"/><path d="M4 28l8-8 6 6 6-8 8 10" stroke="#B8D4E8" stroke-width="1.2" fill="none"/></svg>
+            <span>تصویر قبل</span>
+          </div>
+          <span class="ba-label ba-label-before">قبل</span>
+        </div>
+        <div class="ba-after">
+          <div class="img-placeholder" style="height:100%; background:linear-gradient(135deg,#e8f4fd,#f0f7ff)">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="4" width="32" height="32" rx="4" stroke="#2B7FD4" stroke-width="1.2"/><path d="M4 28l8-8 6 6 6-8 8 10" stroke="#2B7FD4" stroke-width="1.2" fill="none"/></svg>
+            <span>تصویر بعد</span>
+          </div>
+          <span class="ba-label ba-label-after">بعد</span>
+        </div>
+        <div class="ba-handle" id="baHandle">
+          <div class="ba-handle-line"></div>
+          <div class="ba-handle-btn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 10H13M4 10L7 7M4 10L7 13M16 10L13 7M16 10L13 13" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-desc-section cream-section section-pad">
+    <div class="container">
+      <div class="service-desc-grid">
+        <div class="reveal">
+          <span class="eyebrow">چیست؟</span>
+          <h2 class="section-title">چرا چکاپ منظم مهم است؟</h2>
+          <p>دندانپزشکی عمومی پایه سلامت دهان و دندان است. معاینات منظم مشکلات را پیش از تبدیل به مسائل جدی شناسایی می‌کنند.</p>
+          <p>در وی‌دنتا هر ویزیت با بررسی کامل وضعیت دهان، دندان‌ها، لثه و فک همراه است.</p>
+        </div>
+        <div class="service-features reveal" style="--delay:100ms">
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div><h4>معاینه کامل</h4><p>بررسی جامع دهان، دندان، لثه و فک</p></div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div><h4>جرم‌گیری تخصصی</h4><p>حذف پلاک و جرم برای سلامت لثه</p></div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div><h4>پر کردن دندان</h4><p>ترمیم با کامپوزیت هم‌رنگ دندان</p></div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div><h4>درمان ریشه</h4><p>نجات دندان‌های آسیب‌دیده بدون کشیدن</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="consult-section section-pad" id="consult">
+    <div class="container">
+      <div class="consult-inner">
+        <div class="consult-text reveal">
+          <span class="eyebrow">مشاوره رایگان</span>
+          <h2 class="section-title">آیا این خدمت<br>برای شما مناسب است؟</h2>
+          <p>اطلاعات خود را وارد کنید تا متخصصان ما در کوتاه‌ترین زمان با شما تماس بگیرند.</p>
+          <div class="consult-contact"><a href="tel:+989129292">۹۱۲ ۹۲ ۹۲</a></div>
+        </div>
+        <form class="ms-form consult-form reveal" style="--delay:120ms" id="consultForm">
+          <div class="ms-progress"><div class="ms-bar" style="width:50%"></div></div>
+          <div class="ms-step" data-step="1">
+            <p class="ms-hint">مرحله ۱ از ۲ — اطلاعات تماس</p>
+            <input type="text" name="name"  placeholder="نام و نام‌خانوادگی" required>
+            <input type="tel"  name="phone" placeholder="شماره تماس" required dir="ltr">
+            <button type="button" class="ms-next glass-btn glass-btn-misty">بعدی ←</button>
+          </div>
+          <div class="ms-step hidden" data-step="2">
+            <p class="ms-hint">مرحله ۲ از ۲ — جزئیات درخواست</p>
+            <div class="ms-chips">
+              <label class="ms-chip"><input type="checkbox" name="service" value="implant"><span>ایمپلنت</span></label>
+              <label class="ms-chip"><input type="checkbox" name="service" value="ortho"><span>ارتودنسی</span></label>
+              <label class="ms-chip"><input type="checkbox" name="service" value="laminate"><span>لمینت</span></label>
+              <label class="ms-chip"><input type="checkbox" name="service" value="whitening"><span>سفیدکردن</span></label>
+              <label class="ms-chip"><input type="checkbox" name="service" value="general"><span>دندانپزشکی عمومی</span></label>
+              <label class="ms-chip"><input type="checkbox" name="service" value="other"><span>سایر</span></label>
+            </div>
+            <textarea name="notes" placeholder="توضیحات بیشتر (اختیاری)..." rows="3"></textarea>
+            <div class="ms-actions">
+              <button type="button" class="ms-back glass-btn glass-btn-ghost">→ قبلی</button>
+              <button type="submit" class="ms-submit glass-btn glass-btn-misty">ارسال درخواست</button>
+            </div>
+          </div>
+          <div class="ms-success hidden">
+            <div class="ms-success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#27ae60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h4>درخواست دریافت شد!</h4>
+            <p>تا ۳۰ دقیقه با شما تماس می‌گیریم.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo"><img src="../assets/images/logo/logo.jpg" alt="VIDENTA" class="footer-logo-img"></a>
+          <svg class="smile-curve footer-smile" viewBox="0 0 140 14" xmlns="http://www.w3.org/2000/svg"><path d="M 8 7 Q 70 13 132 7" stroke="#B8D4E8" stroke-width="1" fill="none" stroke-linecap="round"/></svg>
+          <p class="footer-tagline">تجربه‌ای متفاوت از دندانپزشکی</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">خدمات</h4>
+          <ul class="footer-links">
+            <li><a href="implant.html">ایمپلنت دندان</a></li>
+            <li><a href="orthodontics.html">ارتودنسی</a></li>
+            <li><a href="laminate.html">لمینت و کامپوزیت</a></li>
+            <li><a href="whitening.html">سفیدکردن دندان</a></li>
+            <li><a href="general.html">دندانپزشکی عمومی</a></li>
+            <li><a href="children.html">دندانپزشکی اطفال</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">تماس</h4>
+          <ul class="footer-links">
+            <li><a href="tel:+989129292">۹۱۲ ۹۲ ۹۲</a></li>
+            <li><span>شیراز، خ. قصر دشت، خ. مهر</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">شبکه‌های اجتماعی</h4>
+          <div class="social-links">
+            <a href="#" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>اینستاگرام</a>
+            <a href="#" class="social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>آپارات</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span class="footer-copy">© ۱۴۰۳ کلینیک دندانپزشکی وی‌دنتا</span></div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/service.js"></script>
+  <script src="../js/multistep.js"></script>
+</body>
+</html>

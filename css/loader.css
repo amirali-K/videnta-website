@@ -1,0 +1,77 @@
+/* ═══════════════════════════════════════════════════
+   Mask Reveal Loader
+   ═══════════════════════════════════════════════════ */
+
+body.loading { overflow: hidden; }
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  pointer-events: all;
+}
+
+/* ─── Panels ─── */
+.loader-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #000; /* pure black → matches inverted JPG white bg perfectly */
+  transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.loader-panel-top    { top: 0; height: 50%; transform: translateY(0); }
+.loader-panel-bottom { bottom: 0; height: 50%; transform: translateY(0); }
+
+#loader.reveal .loader-panel-top    { transform: translateY(-100%); }
+#loader.reveal .loader-panel-bottom { transform: translateY(100%); }
+
+/* ─── Logo — directly in loader, no opacity parent ─── */
+.loader-logo-img {
+  position: relative;
+  z-index: 2;
+  width: clamp(180px, 24vw, 280px);
+  height: auto;
+
+  /* invert: black logo → white, white bg → black
+     screen: black areas become transparent against any bg */
+  filter: invert(1);
+  mix-blend-mode: screen;
+
+  opacity: 0;
+  animation:
+    logoFadeIn  0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards,
+    logoFadeOut 0.3s ease 1.05s forwards;
+}
+
+@keyframes logoFadeIn  { to { opacity: 1; } }
+@keyframes logoFadeOut { to { opacity: 0; } }
+
+/* ─── Smile SVG ─── */
+.loader-smile-svg {
+  position: relative;
+  z-index: 2;
+  width: clamp(140px, 18vw, 200px);
+  opacity: 0;
+  animation:
+    smileFadeIn  0.3s ease 0.4s forwards,
+    smileFadeOut 0.3s ease 1.05s forwards;
+}
+
+@keyframes smileFadeIn  { to { opacity: 1; } }
+@keyframes smileFadeOut { to { opacity: 0; } }
+
+/* Smile path draws itself left→right */
+.smile-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawSmile 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+@keyframes drawSmile {
+  to { stroke-dashoffset: 0; }
+}

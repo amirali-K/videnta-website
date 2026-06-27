@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════════════════
+   Multi-Step Form Component
+   ═══════════════════════════════════════════════════ */
+
+.ms-form { position: relative; }
+
+/* Progress bar */
+.ms-progress {
+  height: 2px;
+  background: rgba(28,53,87,0.1);
+  border-radius: 2px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.ms-bar {
+  height: 100%;
+  background: var(--navy);
+  border-radius: 2px;
+  width: 50%;
+  transition: width 0.5s var(--ease);
+}
+
+/* Dark variant progress */
+.ms-form.dark .ms-progress { background: rgba(255,255,255,0.1); }
+.ms-form.dark .ms-bar      { background: var(--misty); }
+
+/* Steps */
+.ms-step { display: flex; flex-direction: column; gap: 12px; }
+.ms-step.hidden { display: none; }
+
+.ms-hint {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.ms-form.dark .ms-hint { color: rgba(255,255,255,0.4); }
+
+/* Inputs */
+.ms-form input,
+.ms-form textarea {
+  font-family: var(--font);
+  font-size: 14px;
+  padding: 13px 16px;
+  border: 1.2px solid rgba(28,53,87,0.14);
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  text-align: right;
+  resize: vertical;
+}
+.ms-form input[dir="ltr"] { text-align: left; }
+.ms-form input:focus,
+.ms-form textarea:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(28,53,87,0.08);
+}
+
+/* Dark variant inputs */
+.ms-form.dark input,
+.ms-form.dark textarea {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+.ms-form.dark input::placeholder,
+.ms-form.dark textarea::placeholder { color: rgba(255,255,255,0.3); }
+.ms-form.dark input:focus,
+.ms-form.dark textarea:focus {
+  border-color: var(--misty);
+  background: rgba(255,255,255,0.1);
+  box-shadow: none;
+}
+
+/* Service Chips */
+.ms-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.ms-chip input[type="checkbox"] { display: none; }
+
+.ms-chip span {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(28,53,87,0.15);
+  font-size: 13px;
+  font-family: var(--font);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+  user-select: none;
+}
+.ms-chip span:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+.ms-chip input:checked + span {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+/* Dark variant chips */
+.ms-form.dark .ms-chip span {
+  border-color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5);
+}
+.ms-form.dark .ms-chip span:hover {
+  border-color: var(--misty);
+  color: var(--misty);
+}
+.ms-form.dark .ms-chip input:checked + span {
+  background: var(--misty);
+  border-color: var(--misty);
+  color: var(--navy-dark);
+}
+
+/* Actions row */
+.ms-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.ms-next,
+.ms-submit {
+  flex: 1;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 20px;
+  border-radius: 12px !important;
+  cursor: pointer;
+  /* glass styles applied via HTML classes */
+}
+
+.ms-back {
+  font-family: var(--font);
+  font-size: 13px;
+  padding: 13px 16px;
+  border-radius: 12px !important;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Success state */
+.ms-success {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+.ms-success.hidden { display: none; }
+
+.ms-success-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(39,174,96,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.ms-success h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.ms-success p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+.ms-form.dark .ms-success h4 { color: var(--white); }
+.ms-form.dark .ms-success p  { color: rgba(255,255,255,0.5); }
+
+/* Input error */
+.ms-form input.error { border-color: #e74c3c; }
