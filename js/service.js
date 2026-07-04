@@ -49,15 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
   consultForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = consultForm.querySelector('.form-submit');
+    if (!btn) return; // multistep.js handles ms-form submissions
     btn.textContent = 'در حال ارسال...';
     btn.disabled = true;
 
     setTimeout(() => {
       consultForm.querySelectorAll('input, textarea').forEach(el => el.value = '');
-      consultSuccess.style.display = 'block';
+      if (consultSuccess) consultSuccess.style.display = 'block';
       btn.textContent = 'درخواست مشاوره رایگان';
       btn.disabled = false;
-      setTimeout(() => { consultSuccess.style.display = 'none'; }, 6000);
+      setTimeout(() => { if (consultSuccess) consultSuccess.style.display = 'none'; }, 6000);
     }, 800);
   });
 

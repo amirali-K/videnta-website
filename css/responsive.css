@@ -40,9 +40,15 @@
   html { font-size: 15px; }
   body { -webkit-text-size-adjust: 100%; }
 
+  /* ── iOS input zoom prevention (font < 16px causes Safari to zoom) ── */
+  input, textarea, select { font-size: 16px !important; }
+
   /* ── Navbar ── */
   .navbar { height: 64px; }
   .nav-logo-img { height: 38px; }
+
+  /* Hamburger visible on dark hero background */
+  .navbar:not(.scrolled) .hamburger span { background: rgba(255,255,255,0.85); }
 
   /* Slide panel: full-screen for better UX */
   .nav-links {
@@ -122,6 +128,10 @@
    480px — Small phone
 ───────────────────────────────────── */
 @media (max-width: 480px) {
+  /* Restore reasonable font sizes on small inputs after the 16px floor */
+  .ms-hint { font-size: 13px !important; }
+  .ms-chip span { font-size: 14px !important; }
+
 
   /* ── Global ── */
   .container { padding: 0 16px; }
@@ -202,7 +212,7 @@
   .service-h1 { font-size: clamp(40px, 10vw, 64px); }
   .service-lead { font-size: 15px; }
 
-  .back-link { margin-bottom: 28px; font-size: 12px; padding: 8px 16px; }
+  .back-link { margin-bottom: 28px; font-size: 12px; padding: 10px 18px; min-height: 44px; }
 
   /* BA Slider */
   .ba-slider { height: 260px; border-radius: 16px; }
@@ -220,6 +230,9 @@
   .consult-inner { grid-template-columns: 1fr; gap: 32px; }
   .consult-form  { padding: 24px 20px; }
   .consult-contact a { font-size: 18px; }
+
+  /* Footer compat (service pages) — 2 columns on tablet */
+  .footer-top { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
 }
 
 @media (max-width: 480px) {
@@ -229,6 +242,9 @@
   .ba-section .section-header { margin-bottom: 28px; }
   .service-desc-section { padding: 48px 0; }
   .consult-section { padding: 48px 0; }
+
+  /* Footer compat (service pages) — single column on phones */
+  .footer-top { grid-template-columns: 1fr !important; gap: 24px !important; }
 }
 
 /* ═══════════════════════════════════════════════════
